@@ -1,0 +1,184 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Eten-Messages</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'accounts/bootstrap/css/bootstrap.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'accounts/css/main.css' %}" />
+		<link rel="shortcut icon" type="image/x-icon" href="{% static 'accounts/images/EtenHeist1.png'%}"/>
+		<noscript><link rel="stylesheet" href="{% static 'accounts/css/noscript.css' %}" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+		<div id="wrapper">
+			<div  style="background-color: #FFC232; height:150px;  margin-top: -10px;margin-bottom: -60px;" class="inner">
+	
+				 <table style="width:100%">
+				   <tr>
+					 <td style=" width: 20px"><img  style= "width: 100px; height: 60px; margin-left: -25px; "src="{% static '/accounts/images/EtenHeist.png' %}">
+					  
+					  </td>
+					  
+				   
+						   <td style="width: 200px; height: 10px; vertical-align: top; "  >	<h1 style=" color: #B41A00; margin-left:-40px; margin-top:25px; font-size:25px;"><a href="{% url 'index' %}">Eten Heist</a> </h1> </td>
+						   <td></td>
+						   <td style="width: 200px; height: 10px; vertical-align: top; "  >	<h1 style=" color: #B41A00; margin-right:100px; margin-top:25px; font-size:20px;"><a href="{% url 'logout' %}" style="color:#B41A00;">Logout</a> </h1> </td>
+					  </table>
+				 </div>
+			   <header id="header" style="background-color: #DEF98C; margin-top: -70px; margin-bottom: -40px;" >
+	<div   style="background-color: #DEF98C; margin-left: 30px; margin-top: -20px;" class="inner">
+	
+	<!-- Logo -->
+	  <a href="{% url 'index'%}" class="logo">
+		<span class="fa fa-book" style= "color: #B41A00;  "></span> <span class="title" style= " color: #B41A00; font-size:18px; vertical-align: top; "> We bring dining at your door step</span>
+	  </a>
+	
+						 </div>
+					</header>
+
+			<!-- Menu -->
+			<br>
+			<br>
+			<br><br><br><br><br>
+				<nav id="menu">
+					<h2 style= "color: #B41A00;  ">Menu</h2>
+					<ul>
+						<li><a href="{% url 'index'%}" >Home</a></li>
+
+						<li><a href="{% url 'products'%}">Products</a></li>
+
+						<li><a href="{% url 'checkout'%}">Checkout</a></li>
+
+						<li>
+							<a href="#" class="dropdown-toggle">About</a>
+
+							<ul>
+								<li><a href="{% url 'about'%}">About Us</a></li>
+								<li><a href="{% url 'blog'%}">Blog</a></li>
+								<li><a href="{% url 'testimonials'%}">Testimonials</a></li>
+								<li><a href="{% url 'terms'%}"class="active">Terms</a></li>
+							</ul>
+						</li>
+
+						<li ><a href="{% url 'contact'%}">Contact Us</a></li>
+					</ul>
+				</nav>
+
+				<table class="table table-hover">
+                    <thead>
+                        <tr>
+                        <th>
+                        #
+                        </th>
+                        <th>
+                        Name
+                        </th>
+                        <th>
+                        Email
+                        </th>
+                        <th>
+                        Subject
+                        </th>
+                        <th>
+                        Message
+                        </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for data in abt %}
+                        <tr>
+                            <td>
+                            {{forloop.counter}}
+                            </td>
+                            <td>
+                            {{data.first_name}}
+                            </td>
+                            <td>
+                            {{data.email}}
+                            </td>
+                            <td>
+                            {{data.subject}}
+                            </td>
+                            <td>
+                            {{data.message}}
+                            </td>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<div class="inner">
+						<section>
+							<h2 style= "color: #B41A00;  ">Contact Us</h2>
+							<form method="post" action="#">
+								{% csrf_token %}
+								<div class="fields">
+									<div class="field half">
+										<input type="text" name="name" id="name" placeholder="Name" />
+									</div>
+
+									<div class="field half">
+										<input type="text" name="email" id="email" placeholder="Email" />
+									</div>
+
+									<div class="field">
+										<input type="text" name="subject" id="subject" placeholder="Subject" />
+									</div>
+
+									<div class="field">
+										<textarea name="message" id="message" rows="3" placeholder="Notes"></textarea>
+									</div>
+
+									<div class="field text-right">
+										<label>&nbsp;</label>
+
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" class="primary" /></li>
+										</ul>
+									</div>
+								</div>
+							</form>
+						</section>
+
+
+
+						<section>
+							<h2 style= "color: #B41A00;  ">Contact Info</h2>
+
+							<ul class="alt">
+								<li><span class="fa fa-envelope-o"></span> <a href="mailto:etenheist@gmail.com">etenheist@gmail.com</a></li>
+								<li><span class="fa fa-phone"></span> +92 333 3451111 </li>
+								<li><span class="fa fa-map-pin"></span>  Near Wapda Colony Multan, ABC 10001 Pakistan</li>
+							</ul>
+
+							<h2 style= "color: #B41A00;  ">Follow Us</h2>
+
+							<ul class="icons">
+								<li><a href="https://twitter.com/BottleFiltered/media" target="_blank" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="https://www.facebook.com/groups/125806782969369/?ref=share" target="_blank" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+								<li><a href="https://www.instagram.com/filteredbottles/" target="_blank" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+							</ul>
+						</section>
+
+						<ul class="copyright">
+							<li>Copyright © 2022 etenheist </li>
+						</ul>
+					</div>
+				</footer>
+
+		</div>
+
+	<!-- Scripts -->
+		<script src="{% static 'accounts/js/jquery.min.js' %}"></script>
+		<script src="{% static 'accounts/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+		<script src="{% static 'accounts/js/jquery.scrolly.min.js' %}"></script>
+		<script src="{% static 'accounts/js/jquery.scrollex.min.js' %}"></script>
+		<script src="{% static 'accounts/js/main.js' %}"></script>
+
+	</body>
+</html>

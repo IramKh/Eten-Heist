@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Eten Hesit-PDF</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'accounts/bootstrap/css/bootstrap.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'accounts/css/main.css' %}" />
+		<link rel="shortcut icon" type="image/x-icon" href="{% static 'accounts/images/EtenHeist1.png'%}"/>
+		<noscript><link rel="stylesheet" href="{% static 'accounts/css/noscript.css' %}" /></noscript>
+	</head>
+
+<head>
+<style>
+    @page {
+        size: a4 portrait;
+        @frame header_frame {           /* Static Frame */
+            -pdf-frame-content: header_content;
+            left: 50pt; width: 512pt; top: 50pt; height: 40pt;
+        }
+        @frame content_frame {          /* Content Frame */
+            left: 50pt; width: 512pt; top: 90pt; height: 632pt;
+        }
+        @frame footer_frame {           /* Another static Frame */
+            -pdf-frame-content: footer_content;
+            left: 50pt; width: 512pt; top: 772pt; height: 20pt;
+        }
+    }
+</style>
+</head>
+
+<body>
+    <!-- Content for Static Frame 'header_frame' -->
+    <div id="header_content">
+    	<h3>Filtered Bottles</h3>
+    </div>
+
+    <!-- Content for Static Frame 'footer_frame' -->
+    <div id="footer_content">(c) - page <pdf:pagenumber>
+        of <pdf:pagecount>
+    </div>
+
+    <!-- HTML Content -->
+    <table>
+    		<tr>
+    			<td>{{address}}</td>
+    			<td>{{phone}}</td>
+    		</tr>
+    		<tr>
+    			<td>{{city}} {{state}},</td>
+    			<td>{{email}}</td>
+    		</tr>
+    		<tr>
+    			<td>{{zipcode}}</td>
+    			<td>{{website}}</td>
+    		</tr>
+    </table>
+
+    <hr>
+
+    <table>
+    	<tr>
+
+    		<th>Product</th>
+    		<th>Price</th>
+    		<th>Quantity</th>
+    		<th>Total</th>
+    	</tr>
+    	<tr>
+
+    		<td>{{value.name}}</td>
+    		<td>${{value.price}}</td>
+    		<td>{{value.quantity}}</td>
+    	</tr>
+
+    </table>
+
+    <hr>
+
+      <h3 class="text-right" ><strong>Total: $</strong> <strong id="grandtotal" >0</strong></h3>
+</body>
+</html>

@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Eten Hesit</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'accounts/bootstrap/css/bootstrap.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'accounts/css/main.css' %}" />
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'accounts/images/EtenHeist1.png'%}"/>
+		<noscript><link rel="stylesheet" href="{% static 'accounts/css/noscript.css' %}" /></noscript>
+	</head>
+<body class="is-preload">
+    <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Header -->
+                <header id="header">
+                    <div class="inner">
+											<style>
+											/*Change on the Body*/
+											body{
+												font-size: 17px;
+												 font-style: oblique;
+											}
+											</style>
+
+                        <!-- Logo -->
+                            <a href="{% url 'index'%}" class="logo">
+                                <span class="fa fa-book"></span> <span class="title">We bring dining at your door step</span>
+                            </a>>
+<h1>
+    Submitted
+
+</h1>
+
+<hr>
+    <a href="{% url 'main' %}">Back to Home Page</a>
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="inner">
+        <section>
+            <h2>Contact Us</h2>
+            <form method="post" action="#">
+                {% csrf_token %}
+                <div class="fields">
+                    <div class="field half">
+                        <input type="text" name="name" id="name" placeholder="Name" />
+                    </div>
+
+                    <div class="field half">
+                        <input type="text" name="email" id="email" placeholder="Email" />
+                    </div>
+
+                    <div class="field">
+                        <input type="text" name="subject" id="subject" placeholder="Subject" />
+                    </div>
+
+                    <div class="field">
+                        <textarea name="message" id="message" rows="3" placeholder="Notes"></textarea>
+                    </div>
+
+                    <div class="field text-right">
+                        <label>&nbsp;</label>
+
+                        <ul class="actions">
+                            <li><input type="submit" value="Send Message" class="primary" /></li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+
+
+        <section>
+            <h2>Contact Info</h2>
+
+            <ul class="alt">
+                <li><span class="fa fa-envelope-o"></span> <a href="mailto:etenheist@gmail.com">etenheist@gmail.com</a></li>
+                <li><span class="fa fa-phone"></span> +92 333 3451111 </li>
+                <li><span class="fa fa-map-pin"></span> Near Wapda Colony Multan, ABC 10001 Pakistan</li>
+            </ul>
+
+            <h2>Follow Us</h2>
+
+            <ul class="icons">
+                <li><a href="https://twitter.com/BottleFiltered/media" target="_blank" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="https://www.facebook.com/groups/125806782969369/?ref=share" target="_blank" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="https://www.instagram.com/filteredbottles/" target="_blank" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+            </ul>
+        </section>
+
+        <ul class="copyright">
+            <li>Copyright © 2020 waterfilteration </li>
+        </ul>
+    </div>
+</footer>
+
+</div>
+
+<!-- Scripts -->
+<script src="{% static 'accounts/js/jquery.min.js' %}"></script>
+<script src="{% static 'accounts/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'accounts/js/jquery.scrolly.min.js' %}"></script>
+<script src="{% static 'accounts/js/jquery.scrollex.min.js' %}"></script>
+<script src="{% static 'accounts/js/main.js' %}"></script>
+
+</body>
+</html>

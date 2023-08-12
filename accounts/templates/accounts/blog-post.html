@@ -1,0 +1,190 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Eten Heist</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'accounts/bootstrap/css/bootstrap.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'accounts/css/main.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'accounts/css/noscript.css' %}" /></noscript>
+		<link rel="shortcut icon" type="image/x-icon" href="{% static 'accounts/images/EtenHeist1.png'%}"/>
+ 
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<style>
+				/*Change on the Body*/
+				body{
+					font-size: 17px;
+					 font-style: oblique;
+image{width: 600px; height: 400px;}
+				}
+
+				</style>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="{% url 'index'%}" class="logo">
+									<span class="fa fa-book"></span> <span class="title">We bring dining at your door step</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="{% url 'index'%}" >Home</a></li>
+
+							<li><a href="{% url 'products'%}">Products</a></li>
+
+							<li><a href="{% url 'checkout'%}">Checkout</a></li>
+
+							<li>
+								<a href="#" class="dropdown-toggle">About</a>
+
+								<ul>
+									<li><a href="{% url 'about'%}">About Us</a></li>
+									<li><a href="{% url 'blog'%}"class="active">Blog</a></li>
+									<li><a href="{% url 'testimonials'%}">Testimonials</a></li>
+									<li><a href="{% url 'terms'%}">Terms</a></li>
+								</ul>
+							</li>
+
+							<li><a href="{% url 'contact'%}">Contact Us</a></li>
+							<li><a href="{% url 'cart_detail'%}">Cart</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Breakfast</h1>
+
+							<div class="image main">
+								<img src="{% static 'accounts/images/breakfast.jpg' %}" class="img-fluid" alt="" />
+							</div>
+
+							<p>WaterWell have updated the previous model with improvements sought out by users.These include a stronger plastic lever, faster filter flow rate and reinforced Tritan plastic body, and we were suitably impressed!</p>
+
+							<p>How does the FilteredBottles work? When inserted into contaminated water, the UV light destroys the ability for bacteria and viruses to reproduce.Once the virus or bacteria absorb the UV light, it can no longer reproduce, effectively killing the organism and making it harmless and safe for you. It however does not change the smell, taste or the color of the water.</p>
+
+							<p>The two-stage filter system eliminates 99.9% of bacteria, protozoan parasites and micro-plastics from any fresh non-salt water source, including taps, lakes and streams. However, it does not filter salts/sea water, minerals, viruses or heavy metals.</p>
+
+							<p>Filter Bottles have the fastest flow rates on the market (for now at least) and removing the bite valve gives you the option to sip without needing to tip the bottle at all, perfect for when you are on the go.</p>
+						</div>
+
+					<div class="inner">
+						<h1>Lunch</h1>
+
+						<div class="image normal">
+							<img src="{% static 'accounts/images/lunch.jpg' %}" class="img-fluid" alt="" />
+						</div>
+
+						<p>Everyone can get into an unexpected emergency situation. either in the forest or trapped in your vehicle. Survival kits are an outstanding and practical gift for your friends or loved ones. Get your family and friends prepared before any emergencies.</p>
+
+						<p>
+
+						On top of Drinksafe’s standard (and impressive) features, the Travel Tap can expel water by gently squeezing the bottle.
+
+This means that it can be used for safely rinsing your toothbrush, washing fruit and irrigating wounds.</p>
+
+						<p>The two-stage filter system eliminates 99.9% of bacteria, protozoan parasites and micro-plastics from any fresh non-salt water source, including taps, lakes and streams. However, it does not filter salts/sea water, minerals, viruses or heavy metals.</p>
+
+						<p>Filter Bottles have the fastest flow rates on the market (for now at least) and removing the bite valve gives you the option to sip without needing to tip the bottle at all, perfect for when you are on the go.</p>
+					</div>
+
+					<div class="inner">
+						<h1>Dinner</h1>
+
+						<div class="image normal">
+							<img src="{% static 'accounts/images/dinner.jpg' %}" class="img-fluid" alt="" />
+						</div>
+
+						<p>Eten Heist are a great stand-alone product, The small size, reliability, and inexpensive price make it the ideal backup plan for any filter bottle or water bottles</p>
+
+						<p>Whether you are hiking in the wilderness or taking a holiday somewhere that tap water may not be safe, this is the best entry-level water bottle. Unscrew the cap, fill up directly from the tap, stream or lake and start drinking from the straw,
+
+Activated carbon at the bottom of the straw and the hollow fibre membranes at the top work together to remove bacteria, filter out particles and purify the water.</p>
+
+						<p>The two-stage filter system eliminates 99.9% of bacteria, protozoan parasites and micro-plastics from any fresh non-salt water source, including taps, lakes and streams. However, it does not filter salts/sea water, minerals, viruses or heavy metals.</p>
+
+						<p>Filter Bottles have the fastest flow rates on the market (for now at least) and removing the bite valve gives you the option to sip without needing to tip the bottle at all, perfect for when you are on the go.</p>
+					</div>
+
+					</div>
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Leave a comment</h2>
+
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+
+										<div class="field half">
+											<input type="text" name="email" id="email" placeholder="Email" />
+										</div>
+
+										<div class="field">
+											<textarea name="message" id="message" rows="3" placeholder="Your message"></textarea>
+										</div>
+
+										<div class="field text-right">
+											<label>&nbsp;</label>
+
+											<ul class="actions">
+												<li><input type="submit" value="Submit" class="primary" /></li>
+											</ul>
+										</div>
+									</div>
+								</form>
+							</section>
+							<section>
+
+								<h2>Share This</h2>
+
+								<ul class="icons">
+									<li><a href="https://twitter.com/BottleFiltered/media" target="_blank" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="https://www.facebook.com/groups/125806782969369/?ref=share" target="_blank" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+									<li><a href="https://www.instagram.com/filteredbottles/" target="_blank" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+								</ul>
+							</section>
+
+							<ul class="copyright">
+								<li>Copyright © 2020 Waterfileteration </li>
+
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'accounts/js/jquery.min.js' %}"></script>
+			<script src="{% static 'accounts/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+			<script src="{% static 'accounts/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'accounts/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'accounts/js/main.js' %}"></script>
+
+	</body>
+</html>

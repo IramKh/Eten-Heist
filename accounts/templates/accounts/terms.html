@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Eten Hesit-Terms</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'accounts/bootstrap/css/bootstrap.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'accounts/css/main.css' %}" />
+		<link rel="shortcut icon" type="image/x-icon" href="{% static 'accounts/images/EtenHeist1.png'%}"/>
+		<noscript><link rel="stylesheet" href="{% static 'accounts/css/noscript.css' %}" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<style>
+				/*Change on the Body*/
+				body{
+					font-size: 17px;
+					 font-style: oblique;
+				}
+				</style>
+
+				<!-- Header -->
+				<header id="header">
+					<div class="inner">
+
+						<!-- Logo -->
+							<a href="{% url 'index'%}" class="logo">
+									<span class="fa fa-book"></span> <span class="title">We bring dining at your door step</span>
+								</a>
+
+						<!-- Nav -->
+							<nav>
+								<ul>
+									<li><a href="#menu">Menu</a></li>
+								</ul>
+							</nav>
+
+					</div>
+				</header>
+
+			<!-- Menu -->
+				<nav id="menu">
+					<h2>Menu</h2>
+					<ul>
+						<li><a href="{% url 'index'%}" >Home</a></li>
+
+						<li><a href="{% url 'products'%}">Products</a></li>
+
+						<li><a href="{% url 'checkout'%}">Checkout</a></li>
+
+						<li>
+							<a href="#" class="dropdown-toggle">About</a>
+
+							<ul>
+								<li><a href="{% url 'about'%}">About Us</a></li>
+								<li><a href="{% url 'blog'%}">Blog</a></li>
+								<li><a href="{% url 'testimonials'%}">Testimonials</a></li>
+								<li><a href="{% url 'terms'%}"class="active">Terms</a></li>
+							</ul>
+						</li>
+
+						<li><a href="{% url 'contact'%}">Contact Us</a></li>
+						<li><a href="{% url 'cart_detail'%}">Cart</a></li>
+					</ul>
+				</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Terms</h1>
+
+
+							<div class="image main">
+								<img src="{% static 'accounts/images/terms.png' %}" class="img-fluid" alt="" />
+							</div>
+							<p>The Initial Term of this Agreement will start on the earlier of: the date that the Equipment, if any, is installed by Company; for Customers who purchase Products only, on the first date that such Products are delivered to Customer; the date when Customer authorizes payment for Products, and will continue for the period set forth on the order form; or, for Customers who purchase a membership plan or a bundle plan, the date when Customer authorizes payment for such membership or bundle plan, as the case may be. Upon expiration of the applicable Term, this Agreement will continue in effect on a month to month basis, or for such period as specified in additional terms, until terminated by either Company or Customer on 30 days' notice.
+							</p>
+								{% for data in about %}
+									<h2 class="m-n">term</h2>
+									<p>{{data.term_para}}</p>
+								{% endfor %}
+						</div>
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<div class="inner">
+						<section>
+							<h2>Contact Us</h2>
+							<form method="post" action="#">
+								{% csrf_token %}
+								<div class="fields">
+									<div class="field half">
+										<input type="text" name="name" id="name" placeholder="Name" />
+									</div>
+
+									<div class="field half">
+										<input type="text" name="email" id="email" placeholder="Email" />
+									</div>
+
+									<div class="field">
+										<input type="text" name="subject" id="subject" placeholder="subject" />
+									</div>
+
+									<div class="field">
+										<textarea name="message" id="message" rows="3" placeholder="Notes"></textarea>
+									</div>
+
+									<div class="field text-right">
+										<label>&nbsp;</label>
+
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" class="primary" /></li>
+										</ul>
+									</div>
+								</div>
+							</form>
+						</section>
+						<section>
+							<h2>Contact Info</h2>
+
+							<ul class="alt">
+								<li><span class="fa fa-envelope-o"></span> <a href="mailto:etenheist@gmail.com">etenheist@gmail.com</a></li>
+								<li><span class="fa fa-phone"></span> +92 333 3451111 </li>
+								<li><span class="fa fa-map-pin"></span> Near Wapda Colony Multan, ABC 10001 Pakistan</li>
+							</ul>
+
+							<h2>Follow Us</h2>
+
+							<ul class="icons">
+								<li><a href="https://twitter.com/BottleFiltered/media" target="_blank" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="https://www.facebook.com/groups/125806782969369/?ref=share" target="_blank" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+								<li><a href="https://www.instagram.com/filteredbottles/" target="_blank" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+							</ul>
+						</section>
+
+						<ul class="copyright">
+							<li>Copyright © 2022 etenheist </li>
+
+						</ul>
+					</div>
+				</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'accounts/js/jquery.min.js' %}"></script>
+			<script src="{% static 'accounts/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+			<script src="{% static 'accounts/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'accounts/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'accounts/js/main.js' %}"></script>
+	</body>
+</html>

@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'accounts/images/EtenHeist1.png'%}"/>
+ 
+    <title>Eten Heist</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'accounts/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'accounts/assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/assets/css/owl.css' %}">
+  </head>
+
+  <body>
+    <!-- Header -->
+    <div class="sub-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-xs-12">
+            <ul class="left-info">
+              <li><a href="#"><i class="fa fa-envelope"></i>etenheist@gmail.com</a></li>
+              <li><a href="#"><i class="fa fa-phone"></i>+92 333 3451111</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h2>Follow Us</h2>
+
+            <ul class="icons">
+              <li><a href="https://twitter.com/BottleFiltered/media" target="_blank" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+              <li><a href="https://www.facebook.com/groups/125806782969369/?ref=share" target="_blank" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+              <li><a href="https://www.instagram.com/filteredbottles/" target="_blank" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <header class="">
+      <nav class="navbar navbar-expand-lg" style="background-color: black">
+        <div class="container">
+          <a class="navbar-brand" href="{% url 'main' %}"><h2>Mobile Store<em> Website</em></h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'main' %}">Home
+                  <span class="sr-only"></span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'products' %}">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'checkout' %}">Checkout</a>
+              </li>
+              <hr>
+              
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'CustomerInfo' %}">Customers Info</a>
+              </li>
+              
+                <a class="nav-link" href="{% url 'Customer_Messages' %}">Customers Message</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    
+    <div class="span6">
+        <h4 class="heading"><strong>Table</strong> - Feedback from customer<span></span></h4>
+        <table class="table table-hover">
+          <thead>
+            <tr><br>
+                <br>
+                <th>
+                    #
+                </th>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Last Name
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Contact No
+                </th>
+                <th>
+                    Password
+                </th>
+            </tr>
+          </thead>
+            <tbody>
+            {% for data in cus %}
+                <tr>
+                    <td>
+                        {{forloop.counter}}
+                    </td>
+                    <td>
+                    {{data.Customer_first_name}}
+                    </td>
+                    <td>
+                        {{data.Customer_Last_Name}}
+                    </td>
+                    <td>
+                        {{data.Customer_Email}}
+                    </td>
+                    <td>
+                        {{data.Customer_Contact_Number}}
+                    </td>
+                    <td>
+                        {{data.Customer_Password}}
+                    </td>
+                    <td>
+                        <a class="btn btn-sm btn-info" href="{% url 'CustomerUpdate' data.id %}">Update</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-sm btn-danger" href="{% url 'CustomerDelete' data.id %}">Delete</a>
+                    </td>
+              
+                </tr>
+            {% endfor %}
+      
+            </tbody>
+        </table>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'accounts/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'accounts/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Additional Scripts -->
+    <script src="{% static 'accounts/assets/js/custom.js' %}"></script>
+    <script src="{% static 'accounts/assets/js/owl.js' %}"></script>
+    <script src="{% static 'accounts/assets/js/slick.js' %}"></script>
+    <script src="{% static 'accounts/assets/js/accordions.js' %}"></script>
+
+    <script language = "text/Javascript"> 
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
+    </script>
+
+  </body>
+</html>

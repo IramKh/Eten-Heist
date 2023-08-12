@@ -1,0 +1,63 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Customer Delete</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Filtered Bottles-Products</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'accounts/bootstrap/css/bootstrap.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'accounts/css/main.css' %}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'accounts/images/EtenHeist1.png'%}"/>
+ 
+		<noscript><link rel="stylesheet" href="{% static 'accounts/css/noscript.css' %}" /></noscript>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+
+<!-- Menu -->
+  <nav id="menu">
+  <h2>Menu</h2>
+  <ul>
+      <li><a href="{% url 'main'%}">Home</a></li>
+
+      <li><a href="{% url 'products'%}">Products</a></li>
+
+      <li><a href="{% url 'checkout'%}">Checkout</a></li>
+
+      <li>
+          <a href="#" class="dropdown-toggle">About</a>
+
+          <ul>
+              <li><a href="{% url 'about'%}" class="active">About Us</a></li>
+              <li><a href="{% url 'blog'%}">Blog</a></li>
+              <li><a href="{% url 'testimonials'%}">Testimonials</a></li>
+              <li><a href="{% url 'terms'%}">Terms</a></li>
+          </ul>
+      </li>
+
+      <li><a href="{% url 'contact'%}">Contact Us</a></li>
+  </ul>
+  </nav>
+      <form class="bg-white  rounded-5 shadow-5-strong p-5 "id="contact" action="{% url 'CustomerDelete' item.id %}" method="POST">
+          {% csrf_token %}
+          <p>Are you sure you want to Delete: {{item}}</p>
+          <!-- Submit button -->
+          <fieldset>
+            <button type="button" class="btn btn-primary btn-block"><a href="{% url 'main' %}"> Cancel</a></button>
+            <button type="submit" id="form-submit" class="btn btn-primary btn-block">Delete</button>
+          </fieldset>
+        </form>
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>

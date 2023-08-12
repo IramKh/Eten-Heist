@@ -1,0 +1,203 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Filtered Bottles-Testimonials</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'accounts/bootstrap/css/bootstrap.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'accounts/css/main.css' %}" />
+		<link rel="shortcut icon" type="image/x-icon" href="{% static 'accounts/images/EtenHeist1.png'%}"/>
+		<noscript><link rel="stylesheet" href="{% static 'accounts/css/noscript.css' %}" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<style>
+				/*Change on the Body*/
+				body{
+					font-size: 17px;
+					 font-style: oblique;
+				}
+				</style>
+
+				<!-- Header -->
+				<header id="header">
+					<div class="inner">
+
+						<!-- Logo -->
+							<a href="{% url 'index'%}" class="logo">
+									<span class="fa fa-book"></span> <span class="title">We bring dining at your door step</span>
+								</a>
+
+						<!-- Nav -->
+							<nav>
+								<ul>
+									<li><a href="#menu">Menu</a></li>
+								</ul>
+							</nav>
+
+					</div>
+				</header>
+
+			<!-- Menu -->
+				<nav id="menu">
+					<h2>Menu</h2>
+
+					<ul>
+						<li><a href="{% url 'index'%}">Home</a></li>
+
+						<li><a href="{% url 'products'%}">Products</a></li>
+
+						<li><a href="{% url 'checkout'%}">Checkout</a></li>
+
+						<li>
+							<a href="#" class="dropdown-toggle">About</a>
+
+							<ul>
+								<li><a href="{% url 'about'%}">About Us</a></li>
+								<li><a href="{% url 'blog'%}">Blog</a></li>
+								<li><a href="{% url 'testimonials'%}" class="active">Testimonials</a></li>
+								<li><a href="{% url 'terms'%}">Terms</a></li>
+							</ul>
+						</li>
+
+						<li><a href="{% url 'contact'%}">Contact Us</a></li>
+						<li><a href="{% url 'cart_detail'%}">Cart</a></li>
+					</ul>
+				</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Testimonials</h1>
+
+							<div class="image main">
+								<img src="{% static 'accounts/images/b1.jpg' %}" class="img-fluid" alt="" />
+							</div>
+
+								<div class="row">
+									{% for data in about %}
+										<div class="col-sm-6 text-center">
+											<p class="m-n"><em>"{{data.test_para}}"</em></p>
+
+											<p><strong> - {{data.test_name}}</strong></p>
+										</div>
+									{% endfor %}
+								</div>
+
+							<br>
+
+														<div class="row">
+															<div class="col-sm-6 text-center">
+																<p class="m-n"><em>"I love there quality. They are 100% sure of what they are providing to public. Best quality in less price. Best of luck :)."</em></p>
+
+																<p><strong>- Ali Zafar</strong></p>
+															</div>
+
+															<div class="col-sm-6 text-center">
+																<p class="m-n"><em>"EtenHeist never ever compromise on their quality. They are pure."</em></p>
+
+																<p><strong>- Kinza Hashmi</strong> </p>
+															</div>
+
+
+
+
+
+
+															<div class="col-sm-6 text-center">
+																<p class="m-n"><em>"Thank you so much for your water bottles! We love to travel and will be using these everywhere! "</em></p>
+
+																<p><strong>- Zeeshan Khan </strong> </p>
+
+																	</div>
+
+
+															<div class="col-sm-6 text-center">
+																<p class="m-n"><em>"Just a note to thank you for your help and to let you know what good you have done with your filtration bottles. "</em></p>
+
+																<p><strong>- Carolina Jones </strong> </p>
+															</div>
+															</div>
+
+
+
+
+													</div>
+
+
+
+
+						</div>
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<div class="inner">
+						<section>
+							<h2>Contact Us</h2>
+							<form method="post" action="#">
+								{% csrf_token %}
+								<div class="fields">
+									<div class="field half">
+										<input type="text" name="name" id="name" placeholder="Name" />
+									</div>
+
+									<div class="field half">
+										<input type="text" name="email" id="email" placeholder="Email" />
+									</div>
+
+									<div class="field">
+										<input type="text" name="subject" id="subject" placeholder="subject" />
+									</div>
+
+									<div class="field">
+										<textarea name="message" id="message" rows="3" placeholder="Notes"></textarea>
+									</div>
+
+									<div class="field text-right">
+										<label>&nbsp;</label>
+
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" class="primary" /></li>
+										</ul>
+									</div>
+								</div>
+							</form>
+						</section>
+						<section>
+							<h2>Contact Info</h2>
+
+							<ul class="alt">
+								<li><span class="fa fa-envelope-o"></span> <a href="mailto:etenheist@gmail.com">etenheist@gmail.com</a></li>
+								<li><span class="fa fa-phone"></span> +92 333 3451111 </li>
+								<li><span class="fa fa-map-pin"></span> Near Wapda Colony Multan, ABC 10001 Pakistan</li>
+							</ul>
+
+							<h2>Follow Us</h2>
+
+							<ul class="icons">
+								<li><a href="https://twitter.com/BottleFiltered/media" target="_blank" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="https://www.facebook.com/groups/125806782969369/?ref=share" target="_blank" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+								<li><a href="https://www.instagram.com/filteredbottles/" target="_blank" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+							</ul>
+						</section>
+
+						<ul class="copyright">
+							<li>Copyright © 2020 waterfilteration </li>
+
+						</ul>
+					</div>
+				</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'accounts/js/jquery.min.js' %}"></script>
+			<script src="{% static 'accounts/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+			<script src="{% static 'accounts/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'accounts/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'accounts/js/main.js' %}"></script>
+	</body>
+</html>

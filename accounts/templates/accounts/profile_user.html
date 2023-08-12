@@ -1,0 +1,221 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Eten Heist-About</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'accounts/bootstrap/css/bootstrap.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'accounts/css/main.css' %}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'accounts/images/EtenHeist1.png'%}"/>
+		<noscript><link rel="stylesheet" href="{% static 'accounts/css/noscript.css' %}" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+				<header id="header">
+					<div class="inner">
+
+						<!-- Logo -->
+							<a href="{% url 'main'%}" class="logo">
+								<span class="fa fa-book" style= "color: #B41A00;  "></span> <span class="title" style= " color: #B41A00; font-size:18px; vertical-align: top; "> We bring dining at your door step</span>
+								</a>
+
+						<!-- Nav -->
+							<nav>
+								<ul>
+									<li><a href="#menu">Menu</a></li>
+								</ul>
+							</nav>
+
+					</div>
+				</header>
+
+			<!-- Menu -->
+               <nav id="menu">
+                    <h2>Menu</h2>
+                    <ul>
+                         <li><a href="{% url 'index'%}" class="active">Home</a></li>
+
+                         <li><a href="{% url 'products'%}">Products</a></li>
+
+                         <li><a href="{% url 'checkout'%}">Checkout</a></li>
+
+                         <li><a href="{% url 'messages'%}" >messages</a></li>
+
+                         <li>
+                              <a href="#" class="dropdown-toggle">About</a>
+
+                              <ul>
+                                   <li><a href="{% url 'about'%}">About Us</a></li>
+                                   <li><a href="{% url 'blog'%}">Blog</a></li>
+                                   <li><a href="{% url 'testimonials'%}">Testimonials</a></li>
+                                   <li><a href="{% url 'terms'%}">Terms</a></li>
+                              </ul>
+                         </li>
+
+                         <li><a href="{% url 'contact'%}">Contact Us</a></li>
+
+                         <li><a href="{% url 'Login'%}">Login</a></li>
+                         <li>
+                              <a href="#" class="dropdown-toggle">Login</a>
+
+                              <ul>
+                                   <li><a href="{% url 'Login'%}" class="active">Login As Member</a></li>
+                                   <li><a href="{% url 'register'%}">Register</a></li>
+                                   <li><a href="{% url 'Admin_Login'%}">Login As Admin</a></li>
+
+                              </ul>
+                         </li>
+                         <li><a href="{% url 'cart_detail'%}">Cart</a></li>
+
+
+                    </ul>
+               </nav>
+    <!-- Page Content -->
+    {% for data in abt %}
+    <div class="page-heading header-text">
+    <div class="container">
+
+        <h1>{{data.Customer_first_name}} {{data.Customer_Last_Name}} </h1>
+        <h1></h1>
+    </div>
+    </div>
+{% endfor %}
+<div class = "container">
+    <div class="row">
+    {% for data in abt %}
+        <div class="col-md-12 mt-1">
+          <div class="card mb-3 content">
+              <h1 class="m-3 pt-3">About</h1>
+              <div class="card-body">
+                  <div class="row">
+                      <div class="col-md-3">
+                          <h5>Full Name</h5>
+                      </div>
+                      <div class ="col-md-9 text-secondary">
+                        {{data.Customer_first_name}} {{data.Customer_Last_Name}}
+                      </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                      <div class="col-md-3">
+                          <h5>Email</h5>
+                      </div>
+                      <div class="col-md-9 text-secondary">
+                        {{data.Customer_Email}}
+                      </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                      <div class="col-md-3">
+                          <h5>Phone</h5>
+                      </div>
+                      <div class="col-md-9 text-secondary">
+                        {{data.Customer_Contact_Number}}
+                      </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                      <div class="col-md-3">
+                          <h5>Address</h5>
+                      </div>
+                      <div class="col-md-9 text-secondary">
+                        {{data.Customer_Address}}
+                      </div>
+                  </div>
+                  <hr>
+              </div>
+          </div>
+
+      </div>
+    {% endfor %}
+    </div>
+
+</div>
+   <!-- Footer -->
+   <footer id="footer">
+    <div class="inner">
+      <section>
+        <h2 style="color:#B41A00">User Profile</h2>
+        <form method="post" >
+          {% csrf_token %}
+          <div class="fields">
+            <div class="field half">
+              <input type="text" name="uname" id="name" value="{{usr.username}}" placeholder="Username" readonly />
+            </div>
+            <div class="field half">
+              <input type="text" name="email" id="email" value="{{usr.email}}"  placeholder="Email" />
+            </div>
+            <div class="field half">
+              <input type="text" name="fname" id="name" value="{{usr.first_name}}"  placeholder="First name" />
+            </div>
+
+            <div class="field half">
+              <input type="text" name="lname" id="email" value="{{usr.last_name}}"  placeholder="Last name" />
+            </div>
+
+            <div class="field text-right">
+              <label>&nbsp;</label>
+
+              <ul class="actions">
+                <li><input type="submit" style= " background-color: #B41A00" value="Done" class="primary" /></li>
+              </ul>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <ul class="copyright">
+        <li>Copyright © 2020 waterfilteration </li>
+
+      </ul>
+    </div>
+  </footer>
+
+</div>
+
+<!-- Scripts -->
+<script src="{% static 'accounts/js/jquery.min.js' %}"></script>
+<script src="{% static 'accounts/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'accounts/js/jquery.scrolly.min.js' %}"></script>
+<script src="{% static 'accounts/js/jquery.scrollex.min.js' %}"></script>
+<script src="{% static 'accounts/js/main.js' %}"></script>
+
+    <div class="sub-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <p>
+                Copyright © 2020 waterfilteration
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'accounts/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'accounts/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Additional Scripts -->
+    <script src="{% static 'accounts/assets/js/custom.js' %}"></script>
+    <script src="{% static 'accounts/assets/js/owl.js' %}"></script>
+    <script src="{% static 'accounts/assets/js/slick.js' %}"></script>
+    <script src="{% static 'accounts/assets/js/accordions.js' %}"></script>
+
+    <script language = "text/Javascript">
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
+    </script>
+
+  </body>
+</html>

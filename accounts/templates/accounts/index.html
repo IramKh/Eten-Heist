@@ -1,0 +1,359 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+	
+		<title>Eten Heist</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'accounts/bootstrap/css/bootstrap.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'accounts/css/main.css' %}" />
+		<link rel="shortcut icon" type="image/x-icon" href="{% static 'accounts/images/EtenHeist1.png'%}"/>
+		<noscript><link rel="stylesheet" href="{% static 'accounts/css/noscript.css' %}" /></noscript>
+		<style>
+			a{
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+<div  style="background-color: #FFC232;  margin-top: -10px;margin-bottom: -60px;" class="inner">
+
+	<table style="width:100%">
+	  <tr>
+	    <td style=" width: 20px"><img  style= "width: 100px; height: 60px; margin-left: -25px; "src="../../static/accounts/images/EtenHeist.png">
+		
+		</td>
+		
+	  
+			<td style="width: 930px; height: 10px; vertical-align: top; "  >	<h1 style=" color: #B41A00; margin-left:-30px; margin-top:25px; font-size:25px;"><a href="{% url 'index' %}" >Eten Heist</a> </h1> </td>
+			{% if request.user.is_authenticated %}
+			<td  style="  vertical-align: top;" > <p style=" color: #B41A00; margin-left:-250px; margin-top:25px; font-size:18px;"><a href="{% url 'userprofile' %}"><b>Account</b></a> </td>
+			<td  style="  vertical-align: top;" > <p style=" color: #B41A00; margin-left:-210px; margin-top:25px; font-size:18px;"><b>Logined:{{request.user}}</b></td>
+			<td  style="  vertical-align: top;" > <p style=" color: #B41A00; margin-left:-115px; margin-top:25px; font-size:18px;"><a href="{% url 'orderdetail' %}" style="color:#B41A00;"><b>Order</b></a></td>
+			<td  style="  vertical-align: top;" > <p style=" color: #B41A00; margin-left:-95px; margin-top:25px; font-size:18px;"><a href="{% url 'logout' %}" style="color:#B41A00;"><b>LogOut</b></a>
+			{% else %}
+			<td style= " color: white;  vertical-align: top;" > <p style=" color: white; margin-left:-70px; margin-top:25px; font-size:18px;"> <a href="{% url 'Login' %}" style="color:white;">Login</a></td>
+			{% endif %}
+			<!---
+				<td> <img  src="../../static/accounts/images/login.png"></td> -->
+		
+			<td></td>
+
+	    
+	  </tr>
+
+	</table>
+</div>
+				<!-- Header -->
+					<header id="header" style="background-color: #DEF98C; margin-top: -70px; margin-bottom: -40px;" >
+						<div   style="background-color: #DEF98C; margin-left: 30px; margin-top: -20px;" class="inner">
+
+							<!-- Logo -->
+								<a href="{% url 'index'%}" class="logo">
+									<span class="fa fa-book" style= "color: #B41A00;  "></span> <span class="title" style= " color: #B41A00; font-size:18px; vertical-align: top; "> We bring dining at your door step</span>
+								</a>
+
+							<!-- Nav -->
+								<nav> 
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+					
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="{% url 'index'%}" class="active">Home</a></li>
+
+						
+
+							<li><a href="{% url 'checkout'%}">Checkout</a></li>
+
+							<li><a href="{% url 'messages'%}" >Messages</a></li>
+
+							<li>
+								<a href="#" class="dropdown-toggle">About</a>
+
+								<ul>
+									<li><a href="{% url 'about'%}">About Us</a></li>
+								
+									<li><a href="{% url 'testimonials'%}">Testimonials</a></li>
+									<li><a href="{% url 'terms'%}">Terms</a></li>
+								</ul>
+							</li>
+
+							<li><a href="{% url 'contact'%}">Contact Us</a></li>
+
+							<li><a href="{% url 'Login'%}">Login</a></li>
+							<li>
+								<a href="#" class="dropdown-toggle">Login</a>
+
+								<ul>
+
+									<li><a href="{% url 'Restaurant_registration'%}">Register</a></li>
+									<li><a href="{% url 'Admin_Login'%}">Login As Admin</a></li>
+
+								</ul>
+							</li>
+							<li><a href="{% url 'cart_detail'%}">Cart</a></li>
+
+
+						</ul>
+					</nav>
+
+				<!-- Main -->
+<style>
+html{
+font-family: "Copperplate, Papyrus, fantasy";
+}
+
+/Change on the Body/
+body{
+	font-size: 17px;
+ 	 font-style: oblique;
+}
+
+</style>
+					<div id="main">
+						<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+						  <ol class="carousel-indicators">
+						    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+						    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+						    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+						  </ol>
+						  <div style="height: 500px;"  class="carousel-inner">
+						    <div class="carousel-item active">
+
+						      <img class="d-block w-100" src="{% static 'accounts/images/7.jpg' %}" alt="First slide">
+						    </div>
+						    <div class="carousel-item">
+						      <img class="d-block w-100" src="{% static 'accounts/images/4.jpg' %}" alt="Second slide">
+						    </div>
+						    <div class="carousel-item">
+						      <img class="d-block w-100" src="{% static 'accounts/images/8.jpg' %}" alt="Third slide">
+						    </div>
+						  </div>
+						  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+						    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						    <span class="sr-only">Previous</span>
+						  </a>
+						  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+						    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+						    <span class="sr-only">Next</span>
+						  </a>
+						</div>
+
+						<br>
+						<br>
+
+						<div class="inner">
+							<!-- About Us -->
+							<header id="inner">
+								<h2 class="h2" style="color:#B41A00">Choose The City</h2>
+								<form method="post">
+									{% csrf_token %}
+									<select name="loc"  onchange="form.submit()">
+										<option value="ALL" selected>ALL</option>
+										{% for data in products %}
+										<option value="{{data}}">{{data}}</option>
+										{% endfor %}
+									</select>
+									
+								</form>
+								
+								<div  style="width:100%;height:100px;"></div>
+								
+								<p>As a family-owned company, we understand the need to protect your loved ones. That is why we are passionate about raising awareness on food quality concerns, and providing the peace of mind that comes from taking control of your food. Our resturants provide qualitative food. Our motto is "Health is Wealth"</p>
+							</header>
+
+							<br>
+							<h2 class="h2" style="color:#B41A00">Our Best Deals In {{Location}}</h2>
+
+							<div class="row">
+								<div class="col-sm-4 text-center">
+									<img src="{% static 'accounts/images/breakfast.jpg' %}" class="img-fluid" alt="" style="width: 250px; height: 300px;border-radius:20px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
+
+									<h2 class="m-n"><a href="{% url 'breakfast' Location %}">Breakfast.</a></h2>
+									<p> Time: 9am to 11am</p>
+
+								</div>
+
+								<div class="col-sm-4 text-center">
+									<img src="{% static 'accounts/images/lunch.jpg' %}" class="img-fluid" alt="" style="width: 250px; height: 300px;border-radius:20px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
+
+									<h2 class="m-n"><a href="{% url 'lunch' Location %}">Lunch </a></h2>
+
+									<p> Time: 1pm to 4pm</p>
+								</div>
+
+								<div class="col-sm-4 text-center">
+									<img src="{% static 'accounts/images/dinner.jpg' %}" class="img-fluid" alt="" style="width: 250px; height: 300px;border-radius:20px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
+
+									<h2 class="m-n"><a href="{% url 'Dinner' Location %}">Dinner</a></h2>
+
+									<p> Time: 8pm to 10pm</p>
+								</div>
+							</div>
+
+							
+<br>
+
+						
+
+
+							<!-- Products -->
+							<section class="tiles">
+
+
+
+
+
+							{% for data in abt %}
+								<article class="style1">
+									<span class="image">
+										<img src="{{data.image.url}}" alt="" style="width: 350px; height: 300px;" />
+									</span>
+									<a href="{% url 'product_details' data.id %}">
+										<h2>{{data.name}}</h2>
+										
+									</a>
+								</article>
+							{% endfor %}
+
+							</section>
+
+		
+
+							<br>
+
+							<h2 class="h2" style="color:#B41A00">Testimonials</h2>
+
+
+														<div  class="image main">
+															<img src="{% static 'accounts/images/slider1.jpg' %}" class="img-fluid" alt="" style="height: 500px; width: 4000px;" />
+														</div>
+
+														<br>
+
+																					<div class="row">
+																						<div class="col-sm-6 text-center">
+																							<p class="m-n"><em>"I love there quality. They are 100% sure of what they are providing to public. Best quality in less price. Best of luck :)."</em></p>
+
+																							<p><strong>- Ali Zafar</strong></p>
+																						</div>
+
+																						<div class="col-sm-6 text-center">
+																							<p class="m-n"><em>"EtenHeist never ever compromise on their quality. They are pure and provide good quality to their customers."</em></p>
+
+																							<p><strong>- Kinza Hashmi</strong> </p>
+																						</div>
+
+
+ 
+
+
+
+																						<div class="col-sm-6 text-center">
+																							<p class="m-n"><em>"Thank you so much for your delicious food! We love to travel and will be using these everywhere! "</em></p>
+
+																							<p><strong>- Zeeshan Khan </strong> </p>
+
+																								</div>
+
+
+																						<div class="col-sm-6 text-center">
+																							<p class="m-n"><em>"Just a note to thank you for your help and to let you know what good you have done with your services. "</em></p>
+
+																							<p><strong>- Carolina Jones </strong> </p>
+																						</div>
+																						</div>
+
+
+					
+
+							<br>
+
+							
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2 style="color:#B41A00">Contact Us</h2>
+								<form method="post" action="#">
+									{% csrf_token %}
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+
+										<div class="field half">
+											<input type="text" name="email" id="email" placeholder="Email" />
+										</div>
+
+										<div class="field">
+											<input type="text" name="subject" id="subject" placeholder="Subject" />
+										</div>
+
+										<div class="field">
+											<textarea name="message" id="message" rows="3" placeholder="Notes"></textarea>
+										</div>
+
+										<div class="field text-right">
+											<label>&nbsp;</label>
+
+											<ul class="actions">
+												<li><input type="submit" style="background-color:#B41A00"value="Send Message" class="primary" /></li>
+											</ul>
+										</div>
+									</div>
+								</form>
+							</section>
+
+
+
+							<section>
+								<h2 style="color:#B41A00">Contact Info</h2>
+
+								<ul class="alt">
+									<li><span class="fa fa-envelope-o"></span> <a href="mailto:etenheist@gmail.com">etenheist@gmail.com</a></li>
+									<li><span class="fa fa-phone"></span> +92 333 3451111 </li>
+									<li><span class="fa fa-map-pin"></span>  Near Wapda Colony Multan, ABC 10001 Pakistan</li>
+								</ul>
+
+								<h2 style="color:#B41A00">Follow Us</h2>
+
+								<ul class="icons">
+									<li><a href="https://twitter.com/BottleFiltered/media" target="_blank" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="https://www.facebook.com/groups/125806782969369/?ref=share" target="_blank" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+									<li><a href="https://www.instagram.com/filteredbottles/" target="_blank" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+								</ul>
+							</section>
+
+							<ul class="copyright">
+								<li>Copyright © 2022 etenheist </li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'accounts/js/jquery.min.js' %}"></script>>
+			<script src="{% static 'accounts/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+			<script src="{% static 'accounts/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'accounts/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'accounts/js/main.js' %}"></script>
+
+	</body>
+</html>

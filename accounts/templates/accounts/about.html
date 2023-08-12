@@ -1,0 +1,168 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Eten Heist-About</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'accounts/bootstrap/css/bootstrap.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'accounts/css/main.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'accounts/css/noscript.css' %}" /></noscript>
+		<link rel="shortcut icon" type="image/x-icon" href="{% static 'accounts/images/EtenHeist1.png'%}"/>
+ 
+	</head>
+	<body class="is-preload">
+		<style>
+
+
+		/*Change on the Body*/
+		body{
+			font-size: 17px;
+		 	 font-style: oblique;
+		}
+
+		</style>
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+				<header id="header">
+					<div class="inner">
+
+
+						<!-- Logo -->
+							<a href="{% url 'main'%}" class="logo">
+									<span class="fa fa-book"></span> <span class="title">We bring dining at your door step</span>
+								</a>
+
+						<!-- Nav -->
+							<nav>
+								<ul>
+									<li><a href="#menu">Menu</a></li>
+								</ul>
+							</nav>
+
+					</div>
+				</header>
+
+			<!-- Menu -->
+				<nav id="menu">
+					<h2>Menu</h2>
+					<ul>
+						<li><a href="{% url 'main'%}">Home</a></li>
+
+						<li><a href="{% url 'products'%}">Products</a></li>
+
+						<li><a href="{% url 'checkout'%}">Checkout</a></li>
+
+						<li>
+							<a href="#" class="dropdown-toggle">About</a>
+
+							<ul>
+								<li><a href="{% url 'about'%}" class="active">About Us</a></li>
+								
+								<li><a href="{% url 'testimonials'%}">Testimonials</a></li>
+								<li><a href="{% url 'terms'%}">Terms</a></li>
+							</ul>
+						</li>
+
+						<li style="color: #B41A00;"><a href="{% url 'contact'%}">Contact Us</a></li>
+						<li style="color: #B41A00;"><a href="{% url 'cart_detail'%}">Cart</a></li>
+					</ul>
+				</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1 style="color: #B41A00;">Oh, Hey!</h1>
+									<p> <b><font size="+2">If you’ve reached this page, you must be super curious. We’ll do our best to make it worth your time. </font></b> </p>
+
+
+
+								<div class="image main">
+									<img src="{% static 'accounts/images/about-banner.jpg' %}" class="img-fluid" alt="" />
+									<br>
+									<h1 style="color: #B41A00;">Hi. We bring Food at you door step and provide Fastest Delivery.</h1>
+
+									<p> <b><font size="+1">Why? Well, we’re a motley crew of dreamers and designers who live by a simple creed: “Do more of what you love.” </font></b> </p>
+
+									<p>About us it’s not just bringing you good and qualitative food from your 
+										favourite resturant. it’s about to making a connection between customer 
+										and owner. And facilitate you different sevices with our partners. </p>
+								</div>
+
+							{% for data in about %}
+								<p>{{data.about_para1}}</p>
+							{% endfor %}
+						</div>
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<div class="inner">
+						<section>
+							<h2 style="color: #B41A00;">Contact Us</h2>
+							<form method="post" action="#">
+								{% csrf_token %}
+								<div class="fields">
+									<div class="field half">
+										<input type="text" name="name" id="name" placeholder="Name" />
+									</div>
+
+									<div class="field half">
+										<input type="text" name="email" id="email" placeholder="Email" />
+									</div>
+
+									<div class="field">
+										<input type="text" name="subject" id="subject" placeholder="subject" />
+									</div>
+
+									<div class="field">
+										<textarea name="message" id="message" rows="3" placeholder="Notes"></textarea>
+									</div>
+
+									<div class="field text-right">
+										<label>&nbsp;</label>
+
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" class="primary" /></li>
+										</ul>
+									</div>
+								</div>
+							</form>
+						</section>
+						<section>
+							<h2 style="color: #B41A00;">Contact Info</h2>
+
+							<ul class="alt">
+								<li><span class="fa fa-envelope-o"></span> <a href="mailto:etenheist@gmail.com">etenheist@gmail.com</a></li>
+								<li><span class="fa fa-phone"></span> +92 333 3451111 </li>
+								<li><span class="fa fa-map-pin"></span> Near Wapda Colony Multan, ABC 10001 Pakistan</li>
+							</ul>
+
+							<h2 style="color: #B41A00;">Follow Us</h2>
+
+							<ul class="icons">
+								<li><a href="https://twitter.com/BottleFiltered/media" target="_blank" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="https://www.facebook.com/groups/125806782969369/?ref=share" target="_blank" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+								<li><a href="https://www.instagram.com/filteredbottles/" target="_blank" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+							</ul>
+						</section>
+
+						<ul class="copyright">
+							<li>Copyright © 2022 etenheist </li>
+
+						</ul>
+					</div>
+				</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'accounts/js/jquery.min.js' %}"></script>
+			<script src="{% static 'accounts/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+			<script src="{% static 'accounts/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'accounts/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'accounts/js/main.js' %}"></script>
+	</body>
+</html>

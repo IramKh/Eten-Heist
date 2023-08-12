@@ -1,0 +1,213 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Eten Hesit</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'accounts/bootstrap/css/bootstrap.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'accounts/css/main.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'accounts/css/noscript.css' %}" /></noscript>
+		<link rel="shortcut icon" type="image/x-icon" href="{% static 'accounts/images/EtenHeist1.png'%}"/>
+ 
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<style>
+
+
+				/*Change on the Body*/
+				body{
+					font-size: 17px;
+					 font-style: oblique;
+				}
+
+				</style>
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="fa fa-book"></span> <span class="title">We bring dining at your door step</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="{% url 'index'%}">Home</a></li>
+
+							<li><a href="{% url 'products'%}">Products</a></li>
+
+							<li><a href="{% url 'checkout'%}">Checkout</a></li>
+
+							<li>
+								<a href="#" class="dropdown-toggle">About</a>
+
+								<ul>
+									<li><a href="{% url 'about'%}">About Us</a></li>
+									<li><a href="{% url 'blog'%}" class="active">Blog</a></li>
+									<li><a href="{% url 'testimonials'%}">Testimonials</a></li>
+									<li><a href="{% url 'terms'%}">Terms</a></li>
+								</ul>
+							</li>
+
+							<li><a href="{% url 'contact'%}">Contact Us</a></li>
+							<li><a href="{% url 'cart_detail'%}">Cart</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Blog</h1>
+
+
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-9">
+
+										<div class="row">
+											{% for data in about %}
+												<div class="col-sm-6 text-center">
+													<img src={{data.Blog_img.url}} class="img-fluid" alt="" />
+
+													<h2 class="m-n"><a href="blog-post.html">{{data.Blog_para}}</a></h2>
+
+													<p> {{data.Blog_date}}</p>
+
+											</div>
+
+											{% endfor %}
+											</div>
+										</div>
+									</div>
+
+									<div class="col-3">
+										<div class="form-group">
+				                            <h4>Blog Search</h4>
+				                        </div>
+
+										<div class="form-group">
+				                            <div class="input-group">
+				                                <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+
+				                                <span class="input-group-addon"><a href="#"><i class="fa fa-search"></i></a></span>
+				                            </div>
+				                        </div>
+
+				                        <br>
+
+																<div class="image main" style= " width: 250px; height: 200px;">
+																	<img src="{% static 'accounts/images/quokkabottles-bcGBUn52GwQ-unsplash.jpg' %}" class="img-fluid" alt="" style="width: 250px; height: 300px;" />
+																	<p><a href="{% url 'blog-post'%}">Filtered Bottles provides water filtration and purification systems in Pakistan.</a></p>
+																</div>
+																<br><br><br><br>
+
+
+
+																						<div class="image main" style= "margin-top: 150px;">
+																							<img src="{% static 'accounts/images/bannon-morrissy-OKaneXYC46k-unsplash.jpg' %}" class="img-fluid" alt="" style="width: 250px; height: 300px;"/>
+																							<p><a href="{% url 'blog-post'%}">On this platform, we want to discuss and share the knowledge and experience of healthy and filtered water.</a></p>
+																						</div>
+																						<br><br><br><br>
+
+
+										<div class="image main" style="margin-left: 550px; margin-top: -1150px;">
+																	<img src="{% static 'accounts/images/nathan-dumlao-N1bYCseTzgI-unsplash.jpg' %}" alt="" style="width: 250px; height: 300px;" />
+																	<p ><a href="{% url 'blog-post'%}">Filtered Bottles are one of the leading suppliers of water treatment equipment, chemical free system. </a></p>
+																</div>
+																<br><br><br><br>
+																<br><br><br><br>
+																<br><br><br><br>
+																<br><br><br><br>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br><br><br><br>
+					<br><br><br><br>
+					<br><br><br><br>
+				<!-- Footer -->
+				<footer id="footer">
+					<div class="inner">
+						<section>
+							<h2>Contact Us</h2>
+							<form method="post" action="#">
+								{% csrf_token %}
+								<div class="fields">
+									<div class="field half">
+										<input type="text" name="name" id="name" placeholder="Name" />
+									</div>
+
+									<div class="field half">
+										<input type="text" name="email" id="email" placeholder="Email" />
+									</div>
+
+									<div class="field">
+										<input type="text" name="subject" id="subject" placeholder="subject" />
+									</div>
+
+									<div class="field">
+										<textarea name="message" id="message" rows="3" placeholder="Notes"></textarea>
+									</div>
+
+									<div class="field text-right">
+										<label>&nbsp;</label>
+
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" class="primary" /></li>
+										</ul>
+									</div>
+								</div>
+							</form>
+						</section>
+						<section>
+							<h2>Contact Info</h2>
+
+							<ul class="alt">
+								<li><span class="fa fa-envelope-o"></span> <a href="mailto:etenheist@gmail.com">etenheist@gmail.com</a></li>
+								<li><span class="fa fa-phone"></span> +92 333 3451111 </li>
+								<li><span class="fa fa-map-pin"></span> Near Wapda Colony Multan, ABC 10001 Pakistan</li>
+							</ul>
+
+							<h2>Follow Us</h2>
+
+							<ul class="icons">
+								<li><a href="https://twitter.com/BottleFiltered/media" target="_blank" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="https://www.facebook.com/groups/125806782969369/?ref=share" target="_blank" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+								<li><a href="https://www.instagram.com/filteredbottles/" target="_blank" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+							</ul>
+						</section>
+
+						<ul class="copyright">
+							<li>Copyright © 2020 waterfilteration </li>
+
+						</ul>
+					</div>
+				</footer>
+
+
+
+		<!-- Scripts -->
+			<script src="{% static 'accounts/js/jquery.min.js' %}"></script>
+			<script src="{% static 'accounts/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+			<script src="{% static 'accounts/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'accounts/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'accounts/js/main.js' %}"></script>
+
+	</body>
+</html>
